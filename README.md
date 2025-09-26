@@ -7,6 +7,10 @@ This repository contains a Python script that generates continuous accessibility
 - Optional clipping geometry,
 - Time or distance as cost type.
 
+## Requirements
+- Input data and project in a projected coordinate system (metric units) to ensure the cell size parameter corresponds to exact pixel dimensions.
+- IMPORTANT : Avoid using geographic coordinate systems (degrees)
+
 ## Usage
 Run the script in ArcGIS Pro as a script tool with parameters:
 1. Network Dataset
