@@ -1,23 +1,36 @@
 # Continuous-accessibility-algorithm-to-ArcGIS-Pro
-Python script for generating continuous accessibility surfaces in ArcGIS Pro using OD Cost Matrix and Spline With Barriers.
-This repository contains a Python script that generates continuous accessibility surfaces in ArcGIS Pro using:
-- OD Cost Matrix (Network Analyst),
-- Spline With Barriers (Spatial Analyst),
-- Support for multiple barriers (polygons & polylines),
-- Optional clipping geometry,
-- Time or distance as cost type.
+Python script for generating continuous accessibility surfaces in ArcGIS Pro.
+The tool combines Origin–Destination Cost Matrix (Network Analyst) with Spline With Barriers (Spatial Analyst) to estimate continuous travel cost from multiple destinations across a road or pedestrian network.
 
+The algorithm automatically adapts to the selected Travel Mode, extracting its impedance attribute (e.g., meters, minutes) and using it throughout the analysis.
+
+Features
+- OD Cost Matrix–based travel cost calculation.
+
+- Continuous accessibility surface generation using Spline With Barriers.
+
+- Automatic detection of cost attribute and units from the chosen Travel Mode.
+
+- Support for multiple barrier layers (polylines and polygons).
+
+- Optional clipping geometry.
+
+- Works with both distance- and time-based travel modes.
+
+- Field name generated dynamically as:
+Total_[ImpedanceAttribute] (e.g., Total_Meters, Total_WalkTime).
 ## Requirements
-- Input data and project in a projected coordinate system (metric units) to ensure the cell size parameter corresponds to exact pixel dimensions.
-- IMPORTANT : Avoid using geographic coordinate systems (degrees)
+- Input data must be in a projected coordinate system (metric units) for correct raster cell size.
+
+- Avoid geographic coordinate systems (degrees).
 
 ## Usage
-Run the script in ArcGIS Pro as a script tool with parameters:
-1. Network Dataset
-2. Destination points
-3. Interval points (optional)
-4. Barrier layers (optional)
-5. Cell size
-6. Cost type ("Time - Fastest Path" or "Distance - Shortest Path")
-7. Clipping geometry (optional)
-8. Output raster path
+Run the script in ArcGIS Pro as a script tool with the following parameters:
+1. Network Dataset - used for OD Cost Matrix computation.
+2. Travel Mode - Selected movement profile; the algorithm retrieves its cost attribute automatically.
+3. Destination Features - Points representing locations from which accessibility is calculated.
+4. Interval points along network (meters) - Distance between points sampled along each network edge.
+5. Barrier Layers (optional) - Polygon or polyline barriers blocking or modifying travel paths.
+6. Cell size - Output raster resolution (in meters units).
+7. Clipping geometry (optional) - Area used to clip the interpolated raster.
+8. Output raster path - Path to the resulting continuous accessibility surface.
