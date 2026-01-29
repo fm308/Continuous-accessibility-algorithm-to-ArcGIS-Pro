@@ -34,3 +34,14 @@ Run the script in ArcGIS Pro as a script tool with the following parameters:
 6. Cell size - Output raster resolution (in meters units).
 7. Clipping geometry (optional) - Area used to clip the interpolated raster.
 8. Output raster path - Path to the resulting continuous accessibility surface.
+
+## Examples
+- Result representing cost distance in meters on the analyzed area including barriers
+![mapa moj algorytm popr](https://github.com/user-attachments/assets/27f7b457-289c-41d0-a09e-71c769ffeb5f)
+
+- Result representing cost distance in meters on the analyzed area without barriers
+![mapa moj bez barier popr](https://github.com/user-attachments/assets/09ea3f5d-fe66-4df4-9630-7c07606d9bbe)
+
+- Result representing time distance in minutes on the analyzed area including barriers
+![piaseczno mapa czas](https://github.com/user-attachments/assets/782ab4df-80ef-4bbc-a176-d634dee3b5da)
+
